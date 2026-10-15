@@ -1,0 +1,39 @@
+---
+import logo from '../../logos/AC_Bruma_IsologoA_Hoja.png';
+import { brand, navigation } from '../data/site';
+---
+
+<header class="site-header" data-header>
+  <a class="brand-lockup" href="#inicio" aria-label={`${brand.name}, inicio`}>
+    <img src={logo.src} width="48" height="48" alt="" />
+    <span class="brand-wordmark">
+      <strong>{brand.name}</strong>
+      <span>{brand.descriptor}</span>
+    </span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="primary-navigation"
+    data-menu-toggle
+  >
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav class="primary-navigation" id="primary-navigation" aria-label="Navegación principal" data-navigation>
+    <div class="navigation-links">
+      {navigation.map((item) => (
+        <a class="navigation-link" href={item.href} data-nav-link>
+          {item.label}
+        </a>
+      ))}
+    </div>
+    <a class="button button--small button--dark navigation-cta" href="#datos-de-contacto">
+      Solicitar presupuesto <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</header>

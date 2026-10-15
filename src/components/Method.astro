@@ -1,0 +1,34 @@
+---
+import logo from '../../logos/AC_Bruma_IsologoB_Hoja.png';
+import { processSteps } from '../data/site';
+---
+
+<section class="method section-pad" id="metodo" aria-labelledby="method-title">
+  <div class="method-top">
+    <div class="section-kicker" data-reveal>
+      <span class="dot-cluster" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span>CÓMO TRABAJAMOS</span>
+    </div>
+    <img class="method-stamp" src={logo.src} width="78" height="78" alt="" loading="lazy" />
+  </div>
+  <div class="method-heading" data-reveal>
+    <h2 class="section-title" id="method-title">Un proceso sencillo,<br /><em>de principio a fin.</em></h2>
+    <p class="section-intro">
+      Hablamos de lo que necesitas, valoramos el trabajo y acordamos los siguientes pasos contigo.
+    </p>
+  </div>
+
+  <ol class="process-list">
+    {processSteps.map((step, index) => (
+      <li class="process-step" data-step>
+        <span class="process-number">{step.number}</span>
+        <span class="process-node" aria-hidden="true"></span>
+        <div>
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+        </div>
+        {index < processSteps.length - 1 && <span class="process-connector" aria-hidden="true"></span>}
+      </li>
+    ))}
+  </ol>
+</section>

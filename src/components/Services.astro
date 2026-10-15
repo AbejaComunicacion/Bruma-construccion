@@ -1,0 +1,41 @@
+---
+import { services } from '../data/site';
+---
+
+<section class="services section-pad" id="servicios" aria-labelledby="services-title">
+  <div class="section-heading">
+    <div class="section-kicker" data-reveal>
+      <span class="dot-cluster" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      <span>QUÉ HACEMOS</span>
+    </div>
+    <div class="section-heading-main" data-reveal>
+      <h2 class="section-title" id="services-title">Soluciones para<br /><em>mejorar tu espacio.</em></h2>
+      <p class="section-intro">
+        Desde una reforma hasta ese arreglo que tienes pendiente, buscamos una solución práctica
+        para lo que tu hogar necesita.
+      </p>
+    </div>
+  </div>
+
+  <div class="services-list">
+    {services.map((service) => (
+      <article class="service-card" data-service>
+        <div class="service-image">
+          <img src={service.image} alt={service.alt} width="900" height="650" loading="lazy" decoding="async" />
+          <span class="service-number">{service.number}</span>
+        </div>
+        <div class="service-card-copy">
+          <div class="service-card-heading">
+            <h3>{service.title}</h3>
+            <span class="service-arrow" aria-hidden="true">↗</span>
+          </div>
+          <p>{service.description}</p>
+          <span class="service-note">{service.note}</span>
+        </div>
+      </article>
+    ))}
+  </div>
+  <p class="provisional-note">
+    Categorías y fotografías provisionales; confirmar con BRUMA qué trabajos ofrece antes de publicar.
+  </p>
+</section>

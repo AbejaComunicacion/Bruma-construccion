@@ -1,0 +1,48 @@
+---
+import { workReferences } from '../data/site';
+---
+
+<section class="projects section-pad" id="trabajos" aria-labelledby="projects-title">
+  <div class="projects-heading">
+    <div>
+      <div class="section-kicker section-kicker--light" data-reveal>
+        <span class="dot-cluster dot-cluster--light" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span>TRABAJOS Y DETALLES</span>
+      </div>
+      <h2 class="section-title section-title--light" id="projects-title" data-reveal>
+        Pequeños cambios.<br /><em>Grandes diferencias.</em>
+      </h2>
+    </div>
+    <p class="projects-intro" data-reveal>
+      Cada mejora cuenta. Aquí podrás ver reformas y reparaciones realizadas por BRUMA cuando haya
+      fotografías propias disponibles.
+    </p>
+  </div>
+
+  <div class="project-grid">
+    {workReferences.map((project) => (
+      <article class={`project-card ${project.shape}`} data-project>
+        <div class="project-image-wrap">
+          <img
+            src={project.image}
+            alt={project.alt}
+            width="1400"
+            height="1000"
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="project-index">{project.number}</span>
+          <span class="project-hover-mark" aria-hidden="true">↗</span>
+        </div>
+        <div class="project-caption">
+          <div>
+            <h3>{project.title}</h3>
+            <p>{project.type}</p>
+          </div>
+          <span class="project-status">PROVISIONAL</span>
+        </div>
+      </article>
+    ))}
+  </div>
+  <p class="project-disclaimer">Imágenes provisionales para mostrar el formato de la galería; no representan trabajos ejecutados por BRUMA.</p>
+</section>

@@ -1,0 +1,17 @@
+---
+import logo from '../../logos/AC_Bruma_IsologoA_Hoja.png';
+import { brand, navigation } from '../data/site';
+---
+
+<footer class="site-footer">
+  <a class="footer-brand" href="#inicio" aria-label={`${brand.name}, volver al inicio`}>
+    <img src={logo.src} width="44" height="44" alt="" loading="lazy" />
+    <span>{brand.name}</span>
+  </a>
+  <span class="footer-descriptor">{brand.descriptor}</span>
+  <nav aria-label="Navegación de pie de página">
+    {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+  </nav>
+  <a class="footer-contact-link" href="#datos-de-contacto">Solicitar presupuesto</a>
+  <span class="footer-copyright">© {new Date().getFullYear()} BRUMA</span>
+</footer>

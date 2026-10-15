@@ -1,0 +1,47 @@
+---
+import logo from '../../logos/AC_Bruma_IsologoA_Blanco.png';
+import { brand } from '../data/site';
+
+const emailIsConfigured = !brand.email.startsWith('[');
+const phoneIsConfigured = !brand.phone.startsWith('[');
+const phoneLink = `tel:${brand.phone.replace(/[^\d+]/g, '')}`;
+---
+
+<section class="contact section-pad" id="contacto" aria-labelledby="contact-title">
+  <div class="contact-orbit" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="contact-copy" data-reveal>
+    <div class="section-kicker section-kicker--light">
+      <img src={logo.src} width="30" height="30" alt="" loading="lazy" />
+      <span>REFORMAS Y REPARACIONES</span>
+    </div>
+    <h2 class="contact-title" id="contact-title">¿Qué necesitas<br /><em>mejorar?</em></h2>
+    <p>Cuéntanos qué reforma o reparación tienes en mente y hablamos de cómo podemos ayudarte.</p>
+    <a class="button button--light" href="#datos-de-contacto">
+      Solicitar presupuesto <span class="button-arrow" aria-hidden="true">↗</span>
+    </a>
+    <a class="contact-secondary-link" href="#datos-de-contacto">
+      Contactar con BRUMA <span aria-hidden="true">↓</span>
+    </a>
+  </div>
+  <div class="contact-details" id="datos-de-contacto" data-reveal>
+    <span class="contact-detail-label">HABLEMOS</span>
+    <p>
+      {emailIsConfigured || phoneIsConfigured
+        ? 'Contacta con BRUMA a través de los canales disponibles.'
+        : 'Los datos de contacto se añadirán cuando BRUMA confirme sus canales oficiales.'}
+    </p>
+    <dl>
+      <div>
+        <dt>Email</dt>
+        <dd>{emailIsConfigured ? <a href={`mailto:${brand.email}`}>{brand.email}</a> : brand.email}</dd>
+      </div>
+      <div>
+        <dt>Teléfono</dt>
+        <dd>{phoneIsConfigured ? <a href={phoneLink}>{brand.phone}</a> : brand.phone}</dd>
+      </div>
+      <div><dt>Zona</dt><dd>{brand.location}</dd></div>
+    </dl>
+  </div>
+</section>
